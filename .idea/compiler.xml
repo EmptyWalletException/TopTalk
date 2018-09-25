@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="toptalk_base" />
         <module name="toptalk_common" />
+        <module name="toptalk_recruit" />
       </profile>
     </annotationProcessing>
   </component>

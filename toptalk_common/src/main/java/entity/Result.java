@@ -15,6 +15,12 @@ public class Result<T>{
     public Result() {
     }
 
+    public Result(boolean flag, Integer code, String message) {
+        this.flag = flag;
+        this.code = code;
+        this.message = message;
+    }
+
     public Result(boolean flag, Integer code, String message, Object data) {
         this.flag = flag;
         this.code = code;
