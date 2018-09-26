@@ -12,6 +12,7 @@
         <module name="toptalk_gathering" />
         <module name="toptalk_qa" />
         <module name="toptalk_recruit" />
+        <module name="toptalk_spit" />
       </profile>
     </annotationProcessing>
   </component>

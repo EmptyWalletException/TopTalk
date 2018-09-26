@@ -12,4 +12,4 @@ spring:
     database: MySQL
     show-sql: true
   redis:
-    host: 10.0.0.6
+    host: 10.0.0.7
