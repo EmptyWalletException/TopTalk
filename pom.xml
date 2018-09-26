@@ -11,6 +11,7 @@
         <module>toptalk_common</module>
         <module>toptalk_base</module>
         <module>toptalk_recruit</module>
+        <module>toptalk_qa</module>
     </modules>
 
     <packaging>pom</packaging>
