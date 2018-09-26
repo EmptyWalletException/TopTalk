@@ -9,6 +9,7 @@
         <module name="toptalk_article" />
         <module name="toptalk_base" />
         <module name="toptalk_common" />
+        <module name="toptalk_gathering" />
         <module name="toptalk_qa" />
         <module name="toptalk_recruit" />
       </profile>

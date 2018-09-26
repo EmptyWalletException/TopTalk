@@ -1,0 +1,15 @@
+server: 
+  port: 9005
+spring: 
+  application:  
+    name: toptalk_gathering #指定服务名
+  datasource:  
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/toptalk_gathering?characterEncoding=UTF8
+    username: root
+    password: ljj19940228
+  jpa: 
+    database: MySQL
+    show-sql: true
+  redis:
+    host: 10.0.0.6

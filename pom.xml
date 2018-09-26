@@ -13,6 +13,7 @@
         <module>toptalk_recruit</module>
         <module>toptalk_qa</module>
         <module>toptalk_article</module>
+        <module>toptalk_gathering</module>
     </modules>
 
     <packaging>pom</packaging>
