@@ -18,6 +18,7 @@ import java.util.Map;
  * @Date: Created in  2018/9/25 19:04
  */
 @RestController
+@CrossOrigin
 @RequestMapping("/label")
 public class LabelController {
     @Autowired

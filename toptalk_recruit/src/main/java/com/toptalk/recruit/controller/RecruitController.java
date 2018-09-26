@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Map;
 /**
  * 控制器层
@@ -22,8 +23,27 @@ public class RecruitController {
 
 	@Autowired
 	private RecruitService recruitService;
-	
-	
+
+	/**
+	 * 获取12个最新职位列表;
+	 * @return
+	 */
+	@RequestMapping(value = "/search/newlist",method = RequestMethod.GET)
+	public Result newlist(){
+		List<Recruit> list = recruitService.findTop12ByStateNotOrderByCreatetimeDesc("0");
+		return new Result(true,StatusCode.OK,"查询成功",list);
+	}
+
+	/**
+	 * 获取推荐职位列表;
+	 * @return
+	 */
+	@RequestMapping(value = "/search/recommend",method = RequestMethod.GET)
+	public Result recommend(){
+		List<Recruit> list = recruitService.findTop4ByStateOrderByCreatetimeDesc("2");
+		return new Result(true,StatusCode.OK,"查询成功",list);
+	}
+
 	/**
 	 * 查询全部数据
 	 * @return

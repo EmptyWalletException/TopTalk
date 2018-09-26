@@ -22,7 +22,15 @@ public class EnterpriseController {
 
 	@Autowired
 	private EnterpriseService enterpriseService;
-	
+
+	/**
+	 * 获取热门企业;
+	 * @return
+	 */
+	@RequestMapping(value = "/search/hostlist",method = RequestMethod.GET)
+	public Result hotlist(){
+		return  new Result(true,StatusCode.OK,"查询成功",enterpriseService.hotList());
+	}
 	
 	/**
 	 * 查询全部数据

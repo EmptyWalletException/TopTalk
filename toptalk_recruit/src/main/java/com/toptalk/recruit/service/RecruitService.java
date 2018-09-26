@@ -33,6 +33,24 @@ public class RecruitService {
 	private IdWorker idWorker;
 
 	/**
+	 * 根据状态不为state的查询前12个;
+	 * @param state
+	 * @return
+	 */
+	public List<Recruit> findTop12ByStateNotOrderByCreatetimeDesc(String state){
+		return recruitDao.findTop12ByStateNotOrderByCreatetimeDesc(state);
+	}
+
+	/**
+	 * 根据状态查询前4个;
+	 * @param state
+	 * @return
+	 */
+	public List<Recruit> findTop4ByStateOrderByCreatetimeDesc(String state){
+		return recruitDao.findTop4ByStateOrderByCreatetimeDesc(state);
+	}
+
+	/**
 	 * 查询全部列表
 	 * @return
 	 */

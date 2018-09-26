@@ -28,11 +28,15 @@ MySql数据库使用了MyCat分片部署，主从分离，读写分离；
 
 ## ********** 开发记录 ***********
 
+2018/09/26:
+
+1 : 完成了求职模块的复杂业务;
+
 2018/09/25:
 
 1 : 配置开发环境,创建数据库,执行sql语句文件;
 
-2 : 创建父模块toptalk_parent,公共模块toptalk_common,基础模块toptalk_base,求职模块toptalk_recruit执行模块测试;
+2 : 创建父模块toptalk_parent,公共模块toptalk_common,基础模块toptalk_base,求职模块toptalk_recruit的基础业务,执行模块测试;
 
 3 : 初次运行报错:
         Caused by: java.lang.ClassNotFoundException: javax.xml.bind.JAXBException;
