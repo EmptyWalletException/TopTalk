@@ -12,6 +12,7 @@
         <module>toptalk_base</module>
         <module>toptalk_recruit</module>
         <module>toptalk_qa</module>
+        <module>toptalk_article</module>
     </modules>
 
     <packaging>pom</packaging>
