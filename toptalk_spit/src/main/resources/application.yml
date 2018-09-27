@@ -5,5 +5,5 @@ spring:
     name: toptalk_spit #指定服务名
   data:
     mongodb:
-      host: 10.0.0.7
+      host: 10.0.0.6
       database: spitdb

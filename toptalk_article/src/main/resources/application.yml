@@ -12,8 +12,8 @@ spring:
     database: MySQL
     show-sql: true
   redis:
-    host: 10.0.0.7
+    host: 10.0.0.6
   data:
     mongodb:
-      host: 10.0.0.7
+      host: 10.0.0.6
       database: recruitdb
