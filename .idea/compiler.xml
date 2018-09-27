@@ -13,7 +13,9 @@
         <module name="toptalk_qa" />
         <module name="toptalk_recruit" />
         <module name="toptalk_search" />
+        <module name="toptalk_sms" />
         <module name="toptalk_spit" />
+        <module name="toptalk_user" />
       </profile>
     </annotationProcessing>
   </component>

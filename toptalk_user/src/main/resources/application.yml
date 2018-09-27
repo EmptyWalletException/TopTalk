@@ -1,0 +1,17 @@
+server: 
+  port: 9008
+spring: 
+  application:  
+    name: toptalk_user #指定服务名
+  datasource:  
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/toptalk_user?characterEncoding=UTF8
+    username: root
+    password: ljj19940228
+  jpa: 
+    database: MySQL
+    show-sql: true
+  redis:
+    host: 10.0.0.6
+  rabbitmq:
+    host: 10.0.0.6

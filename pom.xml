@@ -16,6 +16,8 @@
         <module>toptalk_gathering</module>
         <module>toptalk_spit</module>
         <module>toptalk_search</module>
+        <module>toptalk_user</module>
+        <module>toptalk_sms</module>
     </modules>
 
     <packaging>pom</packaging>

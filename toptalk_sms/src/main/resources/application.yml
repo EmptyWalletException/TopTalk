@@ -1,0 +1,7 @@
+server: 
+  port: 9009
+spring: 
+  application:  
+    name: toptalk_sms #指定服务名
+  rabbitmq:
+    host: 10.0.0.6
