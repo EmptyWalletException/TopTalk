@@ -2,7 +2,7 @@ server:
   port: 9001
 spring:
   application:
-    name: toptalk_base #指定服务名
+    name: toptalk-base #指定服务名
   datasource:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/toptalk_base?characterEncoding=utf-8
@@ -10,5 +10,9 @@ spring:
     password: ljj19940228
   jpa:
     database: MySQL
-    show‐sql: true
-    generate‐ddl: true
+    show-sql: true
+    generate-ddl: true
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:6868/eureka

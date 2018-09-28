@@ -2,7 +2,7 @@ server:
   port: 9003
 spring: 
   application:  
-    name: toptalk_qa #指定服务名
+    name: toptalk-qa #指定服务名
   datasource:  
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/toptalk_qa?characterEncoding=UTF8
@@ -16,3 +16,7 @@ spring:
 jwt:
   config:
     key: toptalk
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:6868/eureka

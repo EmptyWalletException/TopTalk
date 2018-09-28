@@ -28,11 +28,13 @@ MySql数据库使用了MyCat分片部署，主从分离，读写分离；
 
 ## ********** 开发记录 ***********
 
-2018/09/27:
+2018/09/28:
 
 1 : 增加了密码加密;
 
 2 : 部分模块的部分方法增加了部分角色权限验证,例如发布文章,发布吐槽,发布评论等;
+
+3 : 配置了SpringCloud环境,现在除common模块外均以微服务注册到Eureka中;
 
 2018/09/27:
 
@@ -72,7 +74,7 @@ MySql数据库使用了MyCat分片部署，主从分离，读写分离；
         原因 : 这是一个常见错误,因为java 9 之后移除了四个java ee级别的jar包,所以需要在父模块中pom中加入四个包:
         
         <!--下面四个jar包是由于java9移除了这些jarEE包导致hibernate运行时抛出
-        javax.xml.bind.JAXBException  ,  注意最后一个包即使没有从maven仓库下载也没有关系-->
+        javax.xml.bind.JAXBException  ,  注意如果某个包下载不了可以换个版本号-->
                     <dependency>
                         <groupId>javax.xml.bind</groupId>
                         <artifactId>jaxb-api</artifactId>
@@ -91,7 +93,7 @@ MySql数据库使用了MyCat分片部署，主从分离，读写分离；
                     <dependency>
                         <groupId>javax.activation</groupId>
                         <artifactId>activation</artifactId>
-                        <version>1.2.0</version>
+                        <version>LATEST</version>
                     </dependency>
                     
 4 : 在postman或浏览器中中输入http://localhost:9001/label/1   测试成功,返回json字符串

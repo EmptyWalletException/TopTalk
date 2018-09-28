@@ -1,5 +1,6 @@
 package com.toptalk.qa.controller;
 
+import com.toptalk.qa.client.LabelClient;
 import com.toptalk.qa.pojo.Problem;
 import com.toptalk.qa.service.ProblemService;
 import entity.PageResult;
@@ -27,6 +28,15 @@ public class ProblemController {
 
 	@Autowired
 	private HttpServletRequest request;
+
+	@Autowired
+	private LabelClient labelClient;
+
+	@RequestMapping(value = "/label/{labelid}",method = RequestMethod.GET)
+	public Result findLabelById(@PathVariable String labelid){
+		Result result = labelClient.findById(labelid);
+		return result;
+	}
 
 	/**
 	 * 根据标签id查询等待回答的问题列表;

@@ -1,5 +1,6 @@
 package com.toptalk.gathering;
 
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import util.IdWorker;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,6 +10,7 @@ import util.JwtUtil;
 
 @EnableCaching
 @SpringBootApplication
+@EnableEurekaClient
 public class GatheringApplication {
 
 	public static void main(String[] args) {

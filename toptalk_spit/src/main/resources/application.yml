@@ -2,8 +2,12 @@ server:
   port: 9006
 spring: 
   application:  
-    name: toptalk_spit #指定服务名
+    name: toptalk-spit #指定服务名
   data:
     mongodb:
       host: 10.0.0.6
       database: spitdb
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:6868/eureka

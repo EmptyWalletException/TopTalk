@@ -2,7 +2,11 @@ server:
   port: 9007
 spring: 
   application:  
-    name: toptalk_search #指定服务名
+    name: toptalk-search #指定服务名
   data:
     elasticsearch:
       cluster-nodes: 10.0.0.6:9300
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:6868/eureka

@@ -6,17 +6,29 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="toptalk_article" />
+        <module name="toptalk-article" />
+        <module name="toptalk-eureka" />
+        <module name="toptalk-gathering" />
+        <module name="toptalk-qa" />
+        <module name="toptalk-recruit" />
+        <module name="toptalk-search" />
+        <module name="toptalk-sms" />
+        <module name="toptalk-spit" />
+        <module name="toptalk-user" />
         <module name="toptalk_base" />
         <module name="toptalk_common" />
-        <module name="toptalk_gathering" />
-        <module name="toptalk_qa" />
-        <module name="toptalk_recruit" />
-        <module name="toptalk_search" />
-        <module name="toptalk_sms" />
-        <module name="toptalk_spit" />
-        <module name="toptalk_user" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="toptalk_article" target="1.5" />
+      <module name="toptalk_eureka" target="1.5" />
+      <module name="toptalk_gathering" target="1.5" />
+      <module name="toptalk_qa" target="1.5" />
+      <module name="toptalk_recruit" target="1.5" />
+      <module name="toptalk_search" target="1.5" />
+      <module name="toptalk_sms" target="1.5" />
+      <module name="toptalk_spit" target="1.5" />
+      <module name="toptalk_user" target="1.5" />
+    </bytecodeTargetLevel>
   </component>
 </project>
