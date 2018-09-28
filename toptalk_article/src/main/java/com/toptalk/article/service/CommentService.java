@@ -2,7 +2,7 @@ package com.toptalk.article.service;
 
 import com.toptalk.article.dao.CommentDao;
 import com.toptalk.article.pojo.Comment;
-import entity.IdWorker;
+import util.IdWorker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

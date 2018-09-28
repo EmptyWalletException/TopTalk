@@ -2,7 +2,7 @@ package com.toptalk.recruit.service;
 
 import com.toptalk.recruit.dao.RecruitDao;
 import com.toptalk.recruit.pojo.Recruit;
-import entity.IdWorker;
+import util.IdWorker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

@@ -10,5 +10,11 @@ import com.toptalk.user.pojo.Admin;
  *
  */
 public interface AdminDao extends JpaRepository<Admin,String>,JpaSpecificationExecutor<Admin>{
-	
+
+    /**
+     * 根据登录名查询管理员数据;
+     * @param loginname
+     * @return
+     */
+    public Admin findByLoginname(String loginname);
 }

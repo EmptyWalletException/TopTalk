@@ -8,7 +8,9 @@ import entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
+import util.JwtUtil;
 
+import java.util.HashMap;
 import java.util.Map;
 /**
  * 控制器层
@@ -22,8 +24,30 @@ public class AdminController {
 
 	@Autowired
 	private AdminService adminService;
-	
-	
+
+	@Autowired
+	private JwtUtil jwtUtil;
+
+	/**
+	 * 管理员登陆;
+	 * @param loginMap
+	 * @return
+	 */
+	@RequestMapping(value = "/login",method = RequestMethod.POST)
+	public Result login(@RequestBody Map<String,String> loginMap){
+		Admin admin = adminService.findByLoginnameAndPassword(loginMap.get("loginname"),loginMap.get("password"));
+		if(null != admin){
+			//调用自定义的工具类生成token
+			String token = jwtUtil.createJWT(admin.getId(),admin.getLoginname(),"admin");
+			Map map = new HashMap();
+			map.put("token",token);//将token存入map返回给前端;
+			map.put("name",admin.getLoginname());
+			return new Result(true,StatusCode.OK,"登陆成功!",map);
+		}else{
+			return new Result(false,StatusCode.LOGINERROR,"用户名或密码错误!");
+		}
+	}
+
 	/**
 	 * 查询全部数据
 	 * @return
@@ -71,7 +95,7 @@ public class AdminController {
 	 * 增加
 	 * @param admin
 	 */
-	@RequestMapping(method=RequestMethod.POST)
+	@RequestMapping(value = "/register",method=RequestMethod.POST)
 	public Result add(@RequestBody Admin admin  ){
 		adminService.add(admin);
 		return new Result(true,StatusCode.OK,"增加成功");

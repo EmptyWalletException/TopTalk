@@ -4,8 +4,12 @@ import com.toptalk.article.pojo.Comment;
 import com.toptalk.article.service.CommentService;
 import entity.Result;
 import entity.StatusCode;
+import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.swing.text.html.CSS;
 
 /**
  * @Description:
@@ -19,6 +23,8 @@ public class CommentController {
 
     @Autowired
     private CommentService commentService;
+    @Autowired
+    private HttpServletRequest request;
 
     /**
      * 根据评论id删除对应的评论;
@@ -48,6 +54,12 @@ public class CommentController {
      */
     @RequestMapping(method = RequestMethod.POST)
     public Result add(@RequestBody Comment comment){
+        //需要验证是否是用户,游客不能执行操作;
+        Claims claims = (Claims)request.getAttribute("user_claims");
+        if(null == claims){
+            return new Result(false,StatusCode.ACCESSERROR,"访问权限不足!");
+        }
+        comment.setUserid(claims.getId());
         commentService.add(comment);
         return new Result(true,StatusCode.OK,"提交成功");
     }

@@ -2,7 +2,7 @@ package com.toptalk.base.service;
 
 import com.toptalk.base.dao.LabelDao;
 import com.toptalk.base.pojo.Label;
-import entity.IdWorker;
+import util.IdWorker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

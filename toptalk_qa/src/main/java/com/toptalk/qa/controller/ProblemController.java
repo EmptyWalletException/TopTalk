@@ -5,10 +5,12 @@ import com.toptalk.qa.service.ProblemService;
 import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
+import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 /**
  * 控制器层
@@ -22,6 +24,9 @@ public class ProblemController {
 
 	@Autowired
 	private ProblemService problemService;
+
+	@Autowired
+	private HttpServletRequest request;
 
 	/**
 	 * 根据标签id查询等待回答的问题列表;
@@ -112,11 +117,17 @@ public class ProblemController {
     }
 	
 	/**
-	 * 增加
+	 * 发布问题,需要验证user权限;
 	 * @param problem
 	 */
 	@RequestMapping(method=RequestMethod.POST)
 	public Result add(@RequestBody Problem problem  ){
+		//需要验证是否是用户,游客不能发布问题;
+		Claims claims = (Claims)request.getAttribute("user_claims");
+		if(null == claims){
+			return new Result(false,StatusCode.ACCESSERROR,"访问权限不足!");
+		}
+		problem.setUserid(claims.getId());
 		problemService.add(problem);
 		return new Result(true,StatusCode.OK,"增加成功");
 	}
@@ -127,6 +138,11 @@ public class ProblemController {
 	 */
 	@RequestMapping(value="/{id}",method= RequestMethod.PUT)
 	public Result update(@RequestBody Problem problem, @PathVariable String id ){
+		//需要验证是否是用户,游客不能执行操作;
+		Claims claims = (Claims)request.getAttribute("user_claims");
+		if(null == claims){
+			return new Result(false,StatusCode.ACCESSERROR,"访问权限不足!");
+		}
 		problem.setId(id);
 		problemService.update(problem);		
 		return new Result(true,StatusCode.OK,"修改成功");
@@ -138,6 +154,11 @@ public class ProblemController {
 	 */
 	@RequestMapping(value="/{id}",method= RequestMethod.DELETE)
 	public Result delete(@PathVariable String id ){
+		//需要验证是否是用户,游客不能执行操作;
+		Claims claims = (Claims)request.getAttribute("user_claims");
+		if(null == claims){
+			return new Result(false,StatusCode.ACCESSERROR,"访问权限不足!");
+		}
 		problemService.deleteById(id);
 		return new Result(true,StatusCode.OK,"删除成功");
 	}

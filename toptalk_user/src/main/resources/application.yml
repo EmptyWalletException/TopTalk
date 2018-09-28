@@ -15,3 +15,7 @@ spring:
     host: 10.0.0.6
   rabbitmq:
     host: 10.0.0.6
+jwt:
+  config:
+    key: toptalk
+    ttl: 360000 #设置有效时长为1小时;

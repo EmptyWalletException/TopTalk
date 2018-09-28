@@ -2,7 +2,7 @@ package com.toptalk.article.service;
 
 import com.toptalk.article.dao.ChannelDao;
 import com.toptalk.article.pojo.Channel;
-import entity.IdWorker;
+import util.IdWorker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

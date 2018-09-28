@@ -2,7 +2,7 @@ package com.toptalk.spit.service;
 
 import com.toptalk.spit.dao.SpitDao;
 import com.toptalk.spit.pojo.Spit;
-import entity.IdWorker;
+import util.IdWorker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

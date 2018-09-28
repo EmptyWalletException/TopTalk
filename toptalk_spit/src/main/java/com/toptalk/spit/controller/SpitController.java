@@ -4,9 +4,13 @@ import com.toptalk.spit.pojo.Spit;
 import com.toptalk.spit.service.SpitService;
 import entity.Result;
 import entity.StatusCode;
+import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.swing.text.html.CSS;
 
 /**
  * @Description: 吐槽数据控制层;
@@ -20,6 +24,8 @@ public class SpitController {
 
     @Autowired
     private SpitService spitService;
+    @Autowired
+    private HttpServletRequest request;
 
     /**
      * 执行点赞操作;
@@ -66,12 +72,18 @@ public class SpitController {
     }
 
     /**
-     * 新增数据;
+     * 新增吐槽;
      * @param spit
      * @return
      */
     @RequestMapping(method = RequestMethod.POST)
     public Result add(@RequestBody Spit spit){
+        //需要验证是否是用户,游客不能执行操作;
+        Claims claims = (Claims)request.getAttribute("user_claims");
+        if(null == claims){
+            return new Result(false,StatusCode.ACCESSERROR,"访问权限不足!");
+        }
+        spit.setUserid(claims.getId());
         spitService.add(spit);
         return new Result(true,StatusCode.OK,"增加成功");
     }

@@ -5,10 +5,13 @@ import com.toptalk.article.service.ArticleService;
 import entity.PageResult;
 import entity.Result;
 import entity.StatusCode;
+import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
+import javax.management.remote.rmi.RMIConnection;
+import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 /**
  * 控制器层
@@ -22,6 +25,8 @@ public class ArticleController {
 
 	@Autowired
 	private ArticleService articleService;
+	@Autowired
+	private HttpServletRequest request;
 
 	/**
 	 * 文章点赞操作;
@@ -94,6 +99,12 @@ public class ArticleController {
 	 */
 	@RequestMapping(method=RequestMethod.POST)
 	public Result add(@RequestBody Article article  ){
+		//需要验证是否是用户,游客不能执行操作;
+		Claims claims = (Claims)request.getAttribute("user_claims");
+		if(null == claims){
+			return new Result(false,StatusCode.ACCESSERROR,"访问权限不足!");
+		}
+		article.setUserid(claims.getId());
 		articleService.add(article);
 		return new Result(true,StatusCode.OK,"增加成功");
 	}

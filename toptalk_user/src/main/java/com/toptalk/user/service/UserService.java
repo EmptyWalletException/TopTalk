@@ -2,13 +2,14 @@ package com.toptalk.user.service;
 
 import com.toptalk.user.dao.UserDao;
 import com.toptalk.user.pojo.User;
-import entity.IdWorker;
+import util.IdWorker;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -34,10 +35,28 @@ public class UserService {
 	private IdWorker idWorker;
 
 	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+	@Autowired
 	private RedisTemplate redisTemplate;
 
 	@Autowired
 	private RabbitTemplate rabbitTemplate;
+
+	/**
+	 * 根据手机号和密码查询用户;
+	 * @param mobile
+	 * @param password
+	 * @return
+	 */
+	public User findByMobileAndPassword(String mobile,String password){
+		User user = userDao.findByMobile(mobile);
+		if(null != user && bCryptPasswordEncoder.matches(password,user.getPassword())){
+			return user;
+		}else {
+			return null;
+		}
+	}
 
 	/**
 	 * 新增用户;
@@ -55,6 +74,9 @@ public class UserService {
 			throw new RuntimeException("验证码不正确!");
 		}
 		user.setId( idWorker.nextId()+"");
+		//将用户注册时填的密码进行加密;
+		String newpassword = bCryptPasswordEncoder.encode(user.getPassword());
+		user.setPassword(newpassword);
 		user.setFollowcount(0);//设置关注数;
 		user.setFanscount(0);//设置粉丝数;
 		user.setOnline(0L);//设置在线时长;

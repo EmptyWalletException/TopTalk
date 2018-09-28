@@ -2,7 +2,7 @@ package com.toptalk.gathering.service;
 
 import com.toptalk.gathering.dao.GatheringDao;
 import com.toptalk.gathering.pojo.Gathering;
-import entity.IdWorker;
+import util.IdWorker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;

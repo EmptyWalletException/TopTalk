@@ -2,11 +2,12 @@ package com.toptalk.user.service;
 
 import com.toptalk.user.dao.AdminDao;
 import com.toptalk.user.pojo.Admin;
-import entity.IdWorker;
+import util.IdWorker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.criteria.CriteriaBuilder;
@@ -31,6 +32,37 @@ public class AdminService {
 	
 	@Autowired
 	private IdWorker idWorker;
+
+	//密码加密的bean,在UserApplication类中已经声明了,启动时会创建一个放在容器中;
+	@Autowired
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+	/**
+	 * 根据登录名和密码查询;
+	 * @param loginname
+	 * @param password
+	 * @return
+	 */
+	public Admin findByLoginnameAndPassword(String loginname,String password){
+		Admin admin = adminDao.findByLoginname(loginname);
+		if(null != admin && bCryptPasswordEncoder.matches(password,admin.getPassword())){
+			return admin;
+		}else {
+			return null;
+		}
+	}
+
+	/**
+	 * 新增管理员;
+	 * @param admin
+	 */
+	public void add(Admin admin){
+		admin.setId(idWorker.nextId()+"");
+		//将密码加密;
+		String newpassword = bCryptPasswordEncoder.encode(admin.getPassword());
+		admin.setPassword(newpassword);
+		adminDao.save(admin);
+	}
 
 	/**
 	 * 查询全部列表
@@ -74,14 +106,6 @@ public class AdminService {
 		return adminDao.findById(id).get();
 	}
 
-	/**
-	 * 增加
-	 * @param admin
-	 */
-	public void add(Admin admin) {
-		admin.setId( idWorker.nextId()+"" );
-		adminDao.save(admin);
-	}
 
 	/**
 	 * 修改

@@ -2,7 +2,7 @@ package com.toptalk.article.service;
 
 import com.toptalk.article.dao.ColumnDao;
 import com.toptalk.article.pojo.Column;
-import entity.IdWorker;
+import util.IdWorker;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
