@@ -19,6 +19,7 @@
         <module>toptalk_user</module>
         <module>toptalk_sms</module>
         <module>toptalk_eureka</module>
+        <module>toptalk_friend</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -31,10 +32,8 @@
         <relativePath/>
     </parent>
     <properties>
-        <project.build.sourceEncoding>UTF-
-            8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-
-            8</project.reporting.outputEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
     </properties>
     <dependencies>

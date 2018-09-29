@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/toptalk_article" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/toptalk_base" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/toptalk_common" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/toptalk_eureka" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/toptalk_friend" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/toptalk_gathering" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/toptalk_qa" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/toptalk_recruit" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/toptalk_search" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/toptalk_sms" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/toptalk_spit" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/toptalk_user" charset="UTF-8" />
+  </component>
+</project>

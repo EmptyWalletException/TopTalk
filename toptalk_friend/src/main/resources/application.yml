@@ -1,0 +1,20 @@
+server:
+  port: 9010
+spring:
+  application:
+    name: toptalk-friend #指定服务名
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/toptalk_friend?characterEncoding=utf-8
+    username: root
+    password: ljj19940228
+  jpa:
+    database: MySQL
+    show-sql: true
+jwt:
+  config:
+    key: toptalk
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:6868/eureka
