@@ -14,3 +14,8 @@ eureka:
   client:
     service-url: #Eureka客户端与Eureka服务端进行交互的地址
       defaultZone: http://localhost:6868/eureka/
+management: #暴露触发消息总线的地址;
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

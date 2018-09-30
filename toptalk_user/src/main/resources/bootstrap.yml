@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    config:
+      name: base
+      profile: dev
+      label: master
+      discovery:
+        enabled: true
+        service-id: toptalk-config
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:6868/eureka/
