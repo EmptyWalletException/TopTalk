@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import util.JwtUtil;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.transaction.Transactional;
 import java.util.HashMap;
 import java.util.Map;
 /**
@@ -33,6 +34,26 @@ public class UserController {
 	@Autowired
 	private JwtUtil jwtUtil;
 
+	/**
+	 * 增加关注数;
+	 * @param userid
+	 * @param x
+	 */
+	@RequestMapping(value = "/incfans/{userid}/{x}",method = RequestMethod.POST)
+	public void incFollowcount(@PathVariable String userid,@PathVariable int x){
+		userService.incFollowcount(userid,x);
+	}
+
+
+	/**
+	 * 增加粉丝数;
+	 * @param userid
+	 * @param x
+	 */
+	@RequestMapping(value = "/incfans/{userid}/{x}",method = RequestMethod.POST)
+	public void incFanscount(@PathVariable String userid,@PathVariable int x){
+		userService.incFanscount(userid,x);
+	}
 	/**
 	 * 用户根据手机号登陆;
 	 * @param mobile

@@ -32,5 +32,15 @@ public interface FriendDao extends JpaRepository<Friend,String>,JpaSpecification
     @Modifying
     @Query("update Friend f set f.islike=?3 where f.userid=?1 and f.friendid=?2")
     public void updateLike(String userid, String friendid, String islike);
+
+
+    /**
+     * 删除喜欢的好友;
+     * @param userid
+     * @param friendid
+     */
+    @Modifying
+    @Query("delete from Friend f where f.userid=?1 and f.friendid=?2")
+    public void deleteFriend(String userid, String friendid);
 	
 }

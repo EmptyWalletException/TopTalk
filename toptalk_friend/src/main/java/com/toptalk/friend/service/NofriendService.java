@@ -47,7 +47,8 @@ public class NofriendService {
 		return nofriendDao.findAll();
 	}
 
-	
+
+
 	/**
 	 * 条件查询+分页
 	 * @param whereMap
@@ -79,15 +80,6 @@ public class NofriendService {
 	 */
 	public Nofriend findById(String id) {
 		return nofriendDao.findById(id).get();
-	}
-
-	/**
-	 * 增加
-	 * @param nofriend
-	 */
-	public void add(Nofriend nofriend) {
-		nofriend.setId( idWorker.nextId()+"" );
-		nofriendDao.save(nofriend);
 	}
 
 	/**

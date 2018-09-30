@@ -10,6 +10,9 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 
+import com.toptalk.friend.client.UserClient;
+import com.toptalk.friend.dao.NofriendDao;
+import com.toptalk.friend.pojo.Nofriend;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -32,9 +35,44 @@ public class FriendService {
 
 	@Autowired
 	private FriendDao friendDao;
+
+	@Autowired
+	private NofriendDao nofriendDao;
 	
 	@Autowired
 	private IdWorker idWorker;
+
+	@Autowired
+	private UserClient userClient;
+
+	/**
+	 * 删除好友;
+	 * @param userid
+	 * @param friendid
+	 */
+	@Transactional
+	public void deleteFriend(String userid, String friendid){
+		//删除好友表中的记录
+		friendDao.deleteFriend(userid,friendid);
+		//将对方关于是否是互相喜欢的记录设置为否;
+		friendDao.updateLike(friendid,userid,"0");
+		//将自己的关注数-1;
+		userClient.incFollowcount(userid,-1);
+		//将对方的粉丝数-1;
+		userClient.incFanscount(friendid,-1);
+	}
+
+	/**
+	 * 新增不喜欢好友;
+	 * @param userid
+	 * @param friendid
+	 */
+	public void addNoFriend(String userid, String friendid){
+		Nofriend nofriend = new Nofriend();
+		nofriend.setUserid(userid);
+		nofriend.setFriendid(friendid);
+		nofriendDao.save(nofriend);
+	}
 
 	/**
 	 * 新增好友;
@@ -53,6 +91,8 @@ public class FriendService {
 		friend.setFriendid(friendid);
 		friend.setIslike("0");
 		friendDao.save(friend);
+		userClient.incFollowcount(userid,1);//将自己的关注数加1;
+		userClient.incFanscount(friendid,1);//将对方的粉丝数加1;
 
 		//判断对方是否喜欢你,如果是则将islike设置为1;
 		if (friendDao.selectCount(friendid,userid) >0){

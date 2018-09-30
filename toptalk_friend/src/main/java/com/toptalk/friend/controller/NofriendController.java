@@ -67,16 +67,7 @@ public class NofriendController {
         return new Result(true,StatusCode.OK,"查询成功",nofriendService.findSearch(searchMap));
     }
 	
-	/**
-	 * 增加
-	 * @param nofriend
-	 */
-	@RequestMapping(method=RequestMethod.POST)
-	public Result add(@RequestBody Nofriend nofriend  ){
-		nofriendService.add(nofriend);
-		return new Result(true,StatusCode.OK,"增加成功");
-	}
-	
+
 	/**
 	 * 修改
 	 * @param nofriend

@@ -27,8 +27,28 @@ public class FriendController {
 	
 	@Autowired
 	private HttpServletRequest request;
-	
-	
+
+	/**
+	 * 删除好友
+	 * @param friendid
+	 * @return
+	 */
+	@RequestMapping(value = "/{friendid}",method = RequestMethod.DELETE)
+	public Result remove(@PathVariable String friendid){
+		Claims claims = (Claims)request.getAttribute("user_claims");
+		if (null == claims){
+			return new Result(false, StatusCode.ACCESSERROR,"访问权限不足!");
+		}
+		friendService.deleteFriend(claims.getId(),friendid);
+		return new Result(true,StatusCode.OK,"删除成功!");
+	}
+
+	/**
+	 * 添加喜欢的好友或不喜欢的好友,type为1表示设置为喜欢,type为其它表示设置为不喜欢;
+	 * @param friendid
+	 * @param type
+	 * @return
+	 */
 	@RequestMapping(value = "/like/{friendid}/{type}",method = RequestMethod.PUT)
 	public Result addFriend(@PathVariable String friendid,@PathVariable String type){
 		//先校验操作权限;
@@ -38,11 +58,12 @@ public class FriendController {
 		}
 		//判断前端传过来的是哪个操作指令,"1"代表点击的是"喜欢"按钮,否则是"不喜欢"按钮;
 		if (type.equals("1")){
-			if (friendService.addFriend(claims.getId(),friendid) == 0){
+			if (friendService.addFriend(claims.getId(),friendid) == 0){//执行判断的同时进行了添加操作;
 				return new Result(false,StatusCode.REMOTEERROR,"已经添加过此好友!");
 			}
 		}else {
-			// TODO: 2018/9/29 完成"不喜欢"按钮的操作; 
+			//向不喜欢列表中添加记录;
+			friendService.addNoFriend(claims.getId(),friendid);
 		}
 		return new Result(true,StatusCode.OK,"操作成功!");
 	}
