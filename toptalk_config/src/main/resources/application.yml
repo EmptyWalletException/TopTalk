@@ -1,0 +1,16 @@
+server:
+  port: 12000
+spring:
+  profiles:
+    active: native
+  application:
+    name: toptalk-config #指定服务名
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: C:/NotSystemSrc/IdeaProject/toptalk_parent/configs #项目所有配置文件的存放地址
+eureka:
+  client:
+    service-url: #Eureka客户端与Eureka服务端进行交互的地址
+      defaultZone: http://localhost:6868/eureka/

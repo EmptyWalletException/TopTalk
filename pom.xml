@@ -20,6 +20,9 @@
         <module>toptalk_sms</module>
         <module>toptalk_eureka</module>
         <module>toptalk_friend</module>
+        <module>toptalk_manager</module>
+        <module>toptalk_web</module>
+        <module>toptalk_config</module>
     </modules>
 
     <packaging>pom</packaging>

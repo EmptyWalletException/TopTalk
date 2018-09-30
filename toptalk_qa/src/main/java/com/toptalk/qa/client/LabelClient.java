@@ -1,5 +1,6 @@
 package com.toptalk.qa.client;
 
+import com.toptalk.qa.client.impl.LabelClientImpl;
 import entity.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @Author: MasterCV
  * @Date: Created in  2018/9/28 22:10
  */
-@FeignClient("toptalk-base")//此注解用于指定从那个服务中调用功能
+@FeignClient(value = "toptalk-base",fallback = LabelClientImpl.class)//此注解用于指定从那个服务中调用功能
 public interface LabelClient {
 
     @RequestMapping(value = "/label/{id}",method = RequestMethod.GET)

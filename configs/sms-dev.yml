@@ -1,0 +1,11 @@
+server: 
+  port: 9009
+spring: 
+  application:  
+    name: toptalk-sms #指定服务名
+  rabbitmq:
+    host: 10.0.0.6
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:6868/eureka

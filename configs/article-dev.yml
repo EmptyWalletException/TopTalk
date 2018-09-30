@@ -1,25 +1,23 @@
 server: 
-  port: 9003
+  port: 9004
 spring: 
   application:  
-    name: toptalk-qa #指定服务名
+    name: toptalk-article #指定服务名
   datasource:  
     driverClassName: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/toptalk_qa?characterEncoding=UTF8
+    url: jdbc:mysql://localhost:3306/toptalk_article?characterEncoding=UTF8
     username: root
     password: ljj19940228
   jpa: 
     database: MySQL
     show-sql: true
   redis:
+    host: 10.0.0.6
+  data:
+    mongodb:
       host: 10.0.0.6
-jwt:
-  config:
-    key: toptalk
+      database: recruitdb
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:6868/eureka
-feign:
-  hystrix:
-    enabled: true
