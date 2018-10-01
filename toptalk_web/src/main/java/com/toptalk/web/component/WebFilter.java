@@ -59,7 +59,7 @@ public class WebFilter extends ZuulFilter {
         //获取header;
         HttpServletRequest request = requestContext.getRequest();
         String authorization = request.getHeader("Authorization");
-        //向header中添加鉴权令牌
+        //向ZuulHeader中添加鉴权令牌
         if (null != authorization){
             requestContext.addZuulRequestHeader("Authorization",authorization);
         }
