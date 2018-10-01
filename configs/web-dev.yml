@@ -33,3 +33,6 @@ zuul:
     toptalk-user: #用户
       path: /user/** #配置请求URL的请求规则
       serviceId: toptalk-user #指定Eureka注册中心中的服务id
+    toptalk-search: #搜索
+      path: /search/**
+      serviceId: toptalk-search

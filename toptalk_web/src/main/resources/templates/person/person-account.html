@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head> 
+  <meta charset="utf-8" /> 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+  <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ --> 
+  <meta name="description" content="" /> 
+  <meta name="author" content="" /> 
+  <link rel="icon" href="./img/asset-favicon.ico" /> 
+  <title>社交-账号设置</title> 
+  <!-- 页面 css js --> 
+  <!-- <script type="text/javascript" src="../../plugins/sui/sui.min.js"></script> --> 
+  <link rel="stylesheet" type="text/css" href="./plugins/normalize-css/normalize.css" /> 
+  <link rel="stylesheet" type="text/css" href="./plugins/yui/cssgrids-min.css" /> 
+  <link rel="stylesheet" type="text/css" href="./plugins/sui/sui.min.css" /> 
+  <link rel="stylesheet" type="text/css" href="./plugins/sui/sui-append.min.css" /> 
+  <link rel="stylesheet" type="text/css" href="./plugins/font-awesome/css/font-awesome.min.css" /> 
+  <link rel="stylesheet" type="text/css" href="./css/widget-base.css" /> 
+  <link rel="stylesheet" type="text/css" href="./css/widget-head-foot.css" /> 
+  <link rel="stylesheet" type="text/css" href="./css/page-sj-person-account.css" /> 
+ </head> 
+ <body class="sj-account"> 
+  <!-- 头部 --> 
+  <div class="head"> 
+   <div class="wrapper"> 
+    <!--头部导航--> 
+    <header> 
+     <div class="sui-navbar"> 
+      <div class="navbar-inner"> 
+       <a href="index-logined.html" class="sui-brand"><img src="./img/asset-logo-black.png" alt="社交" /></a> 
+       <ul class="sui-nav"> 
+        <li class="active"><a href="./headline-logined.html">头条</a></li> 
+        <li><a href="./qa-logined.html">问答</a></li> 
+        <li><a href="./activity-index.html">活动</a></li> 
+        <li><a href="./makeFriends-index.html">交友</a></li> 
+        <li><a href="./spit-index.html">吐槽</a></li> 
+        <li><a href="./recruit-index.html">招聘</a></li> 
+       </ul> 
+       <form class="sui-form sui-form pull-left"> 
+        <input type="text" placeholder="输入关键词..." /> 
+        <span class="btn-search fa fa-search"></span> 
+       </form> 
+       <div class="sui-nav pull-right info"> 
+        <li><a href="./other-notice.html" target="_blank" class="notice">通知</a></li> 
+        <li class="hover"> <span class="fa fa-plus "></span> 
+         <ul class="hoverinfo"> 
+          <li><i class="fa fa-share-alt" aria-hidden="true"></i> <a href="./headline-submit.html">去分享</a></li> 
+          <li><i class="fa fa-question-circle" aria-hidden="true"></i> <a href="./qa-submit.html" target="_blank">提问题</a></li> 
+          <li><i class="fa fa-comments" aria-hidden="true"></i><a href="./spit-submit.html" target="_blank">去吐槽</a></li> 
+          <li><i class="fa fa-heartbeat" aria-hidden="true"></i> <a href="./makeFriends-submit.html" target="_blank">发约会</a></li> 
+         </ul> </li> 
+        <li><a href="./person-homepage.html" target="_blank" class="homego"><img src="./img/widget-photo.png" alt="用户头像" /></a></li> 
+       </div> 
+      </div> 
+     </div> 
+    </header> 
+   </div> 
+  </div> 
+  <!-- 主要内容 --> 
+  <div class="wrapper myhome"> 
+   <div class="account"> 
+    <!-- 左侧导航 --> 
+    <div class="left-list"> 
+    <div class="myhome-list"> 
+     <ul class="home-list"> 
+      <li><a href="./person-homepage.html">我的主页</a></li> 
+      <li><a href="./person-myanswer.html">我的回答</a></li> 
+      <li><a href="./person-myquestion.html">我的提问</a></li> 
+      <li><a href="./person-myshare.html">我的分享</a></li> 
+     </ul> 
+     <ul class="home-list bottom"> 
+      <li><a href="./person-dynamic.html">个人动态</a></li> 
+      <li><a href="./person-myfocus.html">我的关注</a></li> 
+      <li><a href="./person-mycollect.html">我的收藏</a></li> 
+      <li><a href="./person-myreaded.html">浏览记录</a></li> 
+      <li  class="active"><a href="./person-account.html">账户设置</a></li> 
+     </ul> 
+    </div> 
+   </div> 
+    <!-- 右侧内容 --> 
+    <div class="right-content"> 
+     <div class="right-tit"> 
+      <span>常规设置</span> 
+     </div> 
+     <div class="account-type"> 
+      <div class="account-person"> 
+       <h3>个人账号</h3> 
+       <ul class="account-info"> 
+        <li> <span class="gray index">名字</span> <span class="info">小白</span> 
+         <form action="" class="sui-form form-inline"> 
+          <input type="text" placeholder="输入姓名" /> 
+          <button class="sui-btn btn-danger save-btn">保存</button> 
+         </form> <span class="gray edit"><i class="fa fa-pencil" aria-hidden="true"></i> 编辑</span> </li> 
+        <li> <span class="gray index">个性网址</span> <span class="info">coder.org/u/bipeng0405</span> 
+         <form action="" class="sui-form form-inline"> 
+          <input type="text" placeholder="输入网址" /> 
+          <button class="sui-btn btn-danger save-btn">保存</button> 
+         </form> <span class="gray edit"><i class="fa fa-pencil" aria-hidden="true"></i> 编辑</span> </li> 
+        <li> <span class="gray index">Email </span> <span class="info">bi****g@163.com</span> 
+         <form action="" class="sui-form form-inline"> 
+          <input type="email" placeholder="输入邮箱" /> 
+          <button class="sui-btn btn-danger save-btn">保存</button> 
+         </form> <span class="gray edit"><i class="fa fa-pencil" aria-hidden="true"></i> 编辑</span> </li> 
+        <li> <span class="gray index">手机号码 </span> <span class="info">136****9875</span> 
+         <form action="" class="sui-form form-inline"> 
+          <input type="phone" placeholder="输入手机号码" /> 
+          <button class="sui-btn btn-danger save-btn">保存</button> 
+         </form> <span class="gray edit"><i class="fa fa-pencil" aria-hidden="true"></i> 编辑</span> </li> 
+        <li> <span class="gray index">密码 </span> <span class="info">点击修改密码</span> 
+         <form action="" class="sui-form form-inline"> 
+          <input type="password" placeholder="输入新的密码" /> 
+          <button class="sui-btn btn-danger save-btn">保存</button> 
+         </form> <span class="gray edit"><i class="fa fa-pencil" aria-hidden="true"></i> 编辑</span> </li> 
+       </ul> 
+      </div> 
+      <div class="account-other"> 
+       <h3>第三方账号</h3> 
+       <ul class="account-info"> 
+        <li> <span class="gray index"><img src="./img/widget-weixin.png" width="20" /> 微信</span> <span class="name">已绑定，解绑</span> <span class="gray check"><i class="fa fa-square-o" aria-hidden="true"></i> 公开显示</span> </li> 
+        <li> <span class="gray index"><img src="./img/widget-QQ.png" width="20" /> QQ</span> <span class="name bind">绑定账号</span> <span class="gray check"><i class="fa fa-square-o" aria-hidden="true"></i> 公开显示</span> </li> 
+        <li> <span class="gray index"><img src="./img/widget-weibo.png" width="20" /> 新浪微博 </span> <span class="name">已绑定，解绑</span> <span class="gray check"><i class="fa fa-square-o" aria-hidden="true"></i> 公开显示</span> </li> 
+       </ul> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+  </div> 
+  
+  
+  <div class="footer"> 
+   <div class="wrapper"> 
+    <div class="footer-bottom"> 
+     <div class="link"> 
+      <dl> 
+       <dt>
+        网站相关
+       </dt> 
+       <dd>
+        关于我们
+       </dd> 
+       <dd>
+        服务条款
+       </dd> 
+       <dd>
+        帮助中心
+       </dd> 
+       <dd>
+        编辑器语法
+       </dd> 
+      </dl> 
+      <dl> 
+       <dt>
+        常用链接
+       </dt> 
+       <dd>
+        传智播客
+       </dd> 
+       <dd>
+        传智论坛
+       </dd> 
+      </dl> 
+      <dl> 
+       <dt>
+        联系我们
+       </dt> 
+       <dd>
+        联系我们
+       </dd> 
+       <dd>
+        加入我们
+       </dd> 
+       <dd>
+        建议反馈
+       </dd> 
+      </dl> 
+      <dl> 
+       <dt>
+        关注我们
+       </dt> 
+       <dd>
+        微博
+       </dd> 
+       <dd>
+        twitter
+       </dd> 
+      </dl> 
+      <div class="xuke"> 
+       <h3>内容许可</h3> 
+       <p>除特别说明外，用户内容均采用知识共享署名-非商业性使用-禁止演绎4.0 国际许可协议 (CC BY-NC-ND 4.0) 进行许可</p> 
+       <p>本站由 传智研究院 提供更新服务</p> 
+      </div> 
+     </div> 
+     <p class="Copyright">Copyright &copy; 2017 传智问答社区 当前版本 0.0.1</p> 
+    </div> 
+   </div> 
+  </div> 
+  <script>
+// $(function(){
+//   $(".hover").hover(function(){
+//     $(".hoverinfo").stop().animate({
+//        opacity: "show"
+//     },"slow");
+//     $(this).find(".fa-plus").css("color","#e64620");
+//   },function(){
+//     $(".hoverinfo").stop().animate({
+//        opacity: "hide"
+//     },"slow");
+//     $(this).find(".fa-plus").css("color","#000");
+//   })
+// })
+
+
+    // $(function(){
+    //     // 点击编辑
+    //     $('.edit').click(function(){
+    //         var chosed = $(this).siblings('.info').text('');
+    //         var changeform = $(this).siblings(".sui-form");
+    //         var changeinput = $(this).siblings(".sui-form input").val(); // 输入的值
+    //         changeform.css('display','inline-block');
+    //     })
+    //     // 公开显示
+    //     $('.check .fa').click(function() {
+    //         if ($(this).hasClass('fa-square-o')) {
+    //             $(this).removeClass('fa-square-o').addClass('fa-check-square-o')
+    //         } else {
+    //             $(this).removeClass('fa-check-square-o').addClass('fa-square-o')
+    //         }
+    //     })
+    // })
+</script> 
+ </body>
+</html>

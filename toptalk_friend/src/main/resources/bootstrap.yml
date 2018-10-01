@@ -1,7 +1,7 @@
 spring:
   cloud:
     config:
-      name: base
+      name: friend
       profile: dev
       label: master
       discovery:

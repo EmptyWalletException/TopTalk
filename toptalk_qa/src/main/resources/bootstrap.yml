@@ -1,7 +1,7 @@
 spring:
   cloud:
     config:
-      name: base
+      name: qa
       profile: dev
       label: master
       discovery:
