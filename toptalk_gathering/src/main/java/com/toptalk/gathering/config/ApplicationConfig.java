@@ -19,7 +19,7 @@ public class ApplicationConfig extends WebMvcConfigurationSupport {
 
     @Override
     protected void addInterceptors(InterceptorRegistry registry) {
-        //注册拦截器,拦截所有路径,跳转到登录请求;
+        //注册拦截器,拦截除了登录请求之外的所有路径,目的是为了调用jwt里pre方法查看request中是否携带了权限信息;
         registry.addInterceptor(jwtFilter).addPathPatterns("/**").excludePathPatterns("/**/login");
     }
 }

@@ -82,14 +82,5 @@ public class MyMvcConfig implements WebMvcConfigurer {
 
     }
 
-//    /**
-//     * 处理静态资源
-//     * @param registry
-//     */
-//    @Override
-//    protected void addInterceptors(InterceptorRegistry registry) {
-//        registry.addInterceptor(new HandlerInterceptor() {
-//        }).excludePathPatterns("/","/index","login","/index.html","/login.html","/user/login","**/**/*.css","**/**/*.js","**/**/*.jpg","**/**/*.jpg");
-//    }
 
 }

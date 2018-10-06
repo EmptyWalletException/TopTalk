@@ -64,7 +64,8 @@ public class UserController {
 	public Result login(String mobile, String password){
 		User user = userService.findByMobileAndPassword(mobile,password);
 		if(null != user){
-			//创建token信息,并返回给前端;;
+			//创建token信息,并返回给前端,前端收到返回的token,name,avatar写入到cookie中进行保存,页面js直接从cookie中取用户名字和头像信息来显示,取不到则显示登录链接
+			// ,以后前端每次发送请求都会在请求头中带上"Authorization"和"Bearer"两个字符串以及token信息串来提示后端解析权限;
 			String token = jwtUtil.createJWT(user.getId(),user.getNickname(),"user");
 			Map map = new HashMap();
 			map.put("token",token);
