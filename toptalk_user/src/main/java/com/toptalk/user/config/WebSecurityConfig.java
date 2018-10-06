@@ -17,7 +17,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     /**
-     * 配置地址拦截,注意禁用csrf
+     * 配置地址权限,注意禁用csrf
      *
      * @param http
      * @throws Exception
